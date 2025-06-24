@@ -1,4 +1,4 @@
-# viamrsh-Task-2-Exploratory-Data-Analysis-EDA
+# Task-2-Exploratory-Data-Analysis-EDA
 
 1.Generate summary statistics (mean, median, std, etc.).
 
@@ -14,3 +14,5 @@ Understand data using statistics and visualizations.
 
 # Tools:
 Pandas, Matplotlib, Seaborn, Plotly
+
+# code explanation 

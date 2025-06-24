@@ -3,18 +3,18 @@
 from google.colab import drive
 drive.mount('/content/drive')
 
-# Step 1: Import necessary libraries
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
-# Step 2: Load the dataset
+#  Load the dataset
 df = pd.read_csv('/content/drive/MyDrive/Titanic-Dataset.csv')
 
 
-# Step 3: Basic information
+# Basic information
 print("First 5 rows of the dataset:")
 print(df.head())
 print("\nDataset Info:")
@@ -22,21 +22,22 @@ print(df.info())
 print("\nSummary Statistics:")
 print(df.describe(include='all'))
 
-# Step 4: Check for missing values
+# Check for missing values
 print("\nMissing Values:")
 print(df.isnull().sum())
 
-# Step 5: Histograms for numerical features
+# Histograms for numerical features
 numerical_cols = df.select_dtypes(include=['int64', 'float64']).columns
 df[numerical_cols].hist(figsize=(12, 10), bins=20, edgecolor='black')
 plt.suptitle("Histograms of Numerical Features")
 plt.tight_layout()
 plt.show()
-# Step 6: Boxplots to detect outliers (Fixed)
+
+# Boxplots to detect outliers (Fixed)
 import math
 
 num_plots = len(numerical_cols)
-cols = 3  # columns in subplot grid
+cols = 3 
 rows = math.ceil(num_plots / cols)
 
 plt.figure(figsize=(5 * cols, 4 * rows))
@@ -49,32 +50,32 @@ for i, col in enumerate(numerical_cols):
 plt.tight_layout()
 plt.show()
 
-# Step 7: Correlation Matrix Heatmap
+# Correlation Matrix Heatmap
 corr_matrix = df[numerical_cols].corr()
 plt.figure(figsize=(10, 7))
 sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f")
 plt.title("Correlation Matrix")
 plt.show()
 
-# Step 8: Pairplot (optional: only if dataset is not too big)
+# Pairplot (optional: only if dataset is not too big)
 sns.pairplot(df[numerical_cols])
 plt.suptitle("Pairplot of Numerical Features", y=1.02)
 plt.show()
 
-# Step 9: Interactive visualizations using Plotly
-# Example: Age distribution by survival
+# Interactive visualizations using Plotly
+#  Age distribution by survival
 if 'Survived' in df.columns and 'Age' in df.columns:
     fig = px.histogram(df, x='Age', color='Survived', barmode='overlay',
                        title='Age Distribution by Survival Status')
     fig.show()
 
-# Example: Gender vs Survival
+#  Gender vs Survival
 if 'Sex' in df.columns and 'Survived' in df.columns:
     fig = px.histogram(df, x='Sex', color='Survived', barmode='group',
                        title='Survival Count by Gender')
     fig.show()
 
-# Step 10: Basic inferences
+#  Basic inferences
 print("\nBasic Inferences:")
 if 'Survived' in df.columns:
     print(df['Survived'].value_counts(normalize=True) * 100)

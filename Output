@@ -70,7 +70,7 @@ min       0.420000    0.000000    0.000000     NaN    0.000000   NaN      NaN
 75%      38.000000    1.000000    0.000000     NaN   31.000000   NaN      NaN  
 max      80.000000    8.000000    6.000000     NaN  512.329200   NaN      NaN  
 
-Missing Values:
+# Missing Values:
 PassengerId      0
 Survived         0
 Pclass           0
@@ -84,3 +84,25 @@ Fare             0
 Cabin          687
 Embarked         2
 dtype: int64
+
+
+
+# Basic Inferences:
+Survived
+0    61.616162
+1    38.383838
+Name: proportion, dtype: float64
+More passengers did not survive than those who did.
+
+# Survival by Gender:
+Survived          0          1
+Sex                           
+female    25.796178  74.203822
+male      81.109185  18.890815
+
+# Passenger Class Distribution:
+Pclass
+3    55.106622
+1    24.242424
+2    20.650954
+Name: proportion, dtype: float64
